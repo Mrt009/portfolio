@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates</title>
+
+    <style>
+        .container {
+            background-color: rgb(24, 23, 23);
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slideshow-container {
+            position: relative;
+            top:10vh;
+            
+            width: 70%;
+            height: 80vh;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            border: 10px solid green;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+           
+            
+        }
+
+        .slide img {
+            position:absolute;
+            
+            width: 100%;
+            height: 100%;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .slide:hover .tooltip {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+      
+            
+
+
+
+        #top{
+            padding:20px;
+        }
+
+
+
+        @media screen and (max-width:650px){
+            .toolkit{
+                margin:0px;}
+                #top{
+                    display: none;
+                }
+            #topi{
+                font-size: 15px;
+                text-align: center;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slideshow-container">
+            <div class="slide">
+                <img src="./assets/images/cs50.png" alt="cs50_pic">
+                <div class="tooltip">
+                    <h2 id="topi">CS50: Introduction to Computer Science  </h2>
+                    <p id="top">"Harvard's renowned online course providing a comprehensive introduction to programming and computer science concepts, including algorithms, data structures, web development, and more."</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./assets/images/intro.png" alt="front_end_pic">
+                <div class="tooltip">
+                    <h2 id="topi">Front-End Development Certificate</h2>
+                    <p id="top" >"A comprehensive course by Meta that covers the fundamentals of front-end web development, including HTML, CSS, JavaScript, and responsive design techniques."</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./assets/images/py.png" alt="python_intro_pic">
+                <div class="tooltip">
+                    <h2 id="topi">Python Introduction Certificate</h2>
+                    <p id="top">"A beginner-friendly course by SoloLearn that introduces the basics of Python programming language, including variables, data types, control structures, and functions. Learn to write simple Python programs and start your journey in the world of programming."</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./assets/images/python.png" alt="python2_pic">
+                <div class="tooltip">
+                    <h2 id="topi">Python Core</h2>
+                    <p id="top" >"Master advanced Python concepts like OOP, file handling, and modules with SoloLearn's Python Core course. Level up your Python skills and unleash the full potential of this versatile programming language."/p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./assets/images/skillup.png" alt="skillup_pic">
+                <div class="tooltip">
+                    <h2 id="topi">SkillUp Machine Learning</h2>
+                    <p id="top">"Master machine learning essentials, algorithms, and model evaluation techniques with SkillUp. Unlock the potential of AI and advance your career with practical skills in data analysis and predictive modeling."</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./assets/images/javascript.png" alt="javascript_pic">
+                <div class="tooltip">
+                    <h2 id="topi">JavaScript  Course</h2>
+                    <p id="top" >"Master JavaScript programming for dynamic web development. Learn DOM manipulation, interactive coding, and create dynamic websites with Meta's JavaScript course."</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./assets/images/version_control.jpg" alt="version_control_pic">
+                <div class="tooltip">
+                    <h2 id="topi">Version Control Certificate</h2>
+                    <p id="top" >"Gain proficiency in version control systems like Git. Learn how to manage code repositories, collaborate with others, and track changes effectively with Meta's Version Control course."</p>
+                </div>
+            </div>
+
+            <a class="prev" onclick="plusDivs(-1)">&#10094;</a>
+            <a class="next" onclick="plusDivs(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusDivs(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("slide");
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+</html>

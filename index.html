@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+
+        body{
+            width:100%;
+            overflow-y:hidden;
+
+
+min-width: 470px;
+            min-height: 742px;
+
+            }
+
+        .container {
+           position:fixed;
+           left:0px;
+           top:0px;
+           right: 0px;
+           left: 0px;
+            
+            
+            background-image: url("./assets/images/contact.jpeg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 10px;
+            border-color: black;
+            border-radius: 5px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: end;
+            color: azure;
+            background-color: #393646;
+            border-radius: 5px;
+            max-height: 8vh;
+        }
+
+        
+
+
+        #link:hover {
+            color: rgb(42, 188, 42);
+            
+            background-color: rgb(0, 0, 0);
+            font-size: 20px;
+            font-weight: 200px;
+
+          }
+
+          #link{
+            color: white;
+            font-size: large;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 40%;
+           
+        }
+
+        #home{
+
+            border-radius:40%;
+           color:rgb(77, 218, 77);
+           font-weight: bolder;
+        }
+
+
+
+        .nav>p {
+            font-family: sans-serif;
+            font-size: large;
+            font-weight: bold;
+            margin-left: 60px;
+            padding-right: 8px;
+        }
+
+        .last {
+            margin-right: 20px;
+        }
+
+        .contact-container {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            /* Adjust the left value to position it accordingly */
+            transform: translate(-50%, -50%);
+            background-color: #f2f2f2;
+            border-radius: 50%;
+            padding: 20px;
+        }
+
+        .contact-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-list li {
+            margin-bottom: 10px;
+        }
+
+        .contact-list li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            color: white;
+            font-weight: bolder;
+            font-size: 100px;
+            margin-left: 50px;
+        }
+
+        h3 {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            position: absolute;
+            top: 250px;
+            margin-left: 50px;
+        }
+
+        .note {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            margin-top: 450px;
+            text-align: right;
+            margin-right: 15px;
+        }
+
+        @media only screen and (max-width: 450px) {
+
+            .container{
+                width: 100%;}
+
+            h1{
+                width:100%;
+                margin-left:3px;
+            }
+
+
+            h3{
+                margin-left:10px;
+            }
+            }
+
+        @media only screen and (max-width: 1045px) {
+            .container {
+                height: 100vh;
+            }
+
+            h1{
+                font-size: 40px;
+            }
+            h3{
+                font-size: 16px;
+                margin-top: -120px;
+            }
+             .note{
+                font-size: 12px;
+             }
+            
+
+            .nav {
+                position: flex;
+                justify-content: space-around;
+                text-align: center;
+            }
+
+            .nav > p {
+                margin: 5px;
+            }
+        }
+
+
+        @media only screen and (height: 672px){
+            .container{
+                height:100vh;
+            }
+
+            .note{
+                margin-bottom: 200px;
+            }
+        }
+
+        @media only screen  and (max-width:1037px){
+            h1{
+               
+            }
+
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <p id = "home">Home</p>
+            
+            
+            <p ><a  class="link last"id="link" href="acertificates.html">Certificates</a></p>
+            <p ><a  class="link last"id="link" href="ahonors.html">Honors</a></p>
+            <p ><a  class="link last"id="link" href="acontact.html">Contact</a></p>
+
+        </div>
+        <div class="time">
+            <h1 id="name"></h1>
+            <h3 id="description"></h3>
+            <p class="note">Thank you for visiting this site. Will be improving it in the upcoming days....</p>
+        </div>
+    </div>
+
+    <script id="lake">
+        // Text content to be displayed
+        const nameText = "Hi, I am Matrika Regmi!";
+        const descriptionText = "a web developer, UX designer, programmer.....";
+        const nameElement = document.getElementById("name");
+        const descriptionElement = document.getElementById("description");
+
+        // Function to simulate typing effect
+        function typeEffect(element, text, delay) {
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i <= text.length) {
+                    element.textContent = text.slice(0, i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, delay);
+        }
+
+        // Play keyboard clicking sound
+        function playClickSound() {
+            const audio = new Audio("keyboard_click.mp3");
+            audio.play();
+        }
+
+        // Call the typing effect function for each text
+        typeEffect(nameElement, nameText, 100);
+        setTimeout(() => {
+            playClickSound();
+            typeEffect(descriptionElement, descriptionText, 100);
+        }, nameText.length * 100); // Delay typing the description text after the name text
+    </script>
+</body>
+</html>
